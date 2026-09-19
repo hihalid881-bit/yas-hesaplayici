@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yaş Hesaplayıcı</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .container { max-width: 400px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 10px; }
+        input[type="date"] { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; margin-top: 15px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .result { margin-top: 15px; padding: 10px; background: #e9ecef; border-radius: 4px; font-weight: bold; }
+        .error { margin-top: 15px; padding: 10px; background: #f8d7da; color: #721c24; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Yaş Hesaplayıcı</h2>
+        <form method="POST">
+            <label for="dogum_tarihi">Doğum Tarihi:</label>
+            <input type="date" id="dogum_tarihi" name="dogum_tarihi" required>
+            
+            <label for="hedef_tarih">Hesaplanacak Tarih:</label>
+            <input type="date" id="hedef_tarih" name="hedef_tarih" required>
+            
+            <button type="submit">Hesapla</button>
+        </form>
+
+        {% if sonuc %}
+            <div class="result">{{ sonuc }}</div>
+        {% endif %}
+
+        {% if hata %}
+            <div class="error">{{ hata }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
